@@ -1,0 +1,449 @@
+/* Variáveis para cores e tipografia (Boa Prática!!!!) */
+:root {
+    --color-primary: #00FFFF; /* Ciano/Azul Neon de destaque */
+    --color-secondary: #5a00ff; /* Roxo vibrante */
+    --color-background: #0f1113; /* Fundo escuro */
+    --color-background-light: #15171a; /* Fundo de seção */
+    --color-text-light: #f4f4f4;
+    --color-text-secondary: #bdbdbd;
+    --font-family-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-display: 'Orbitron', var(--font-family-sans);
+    --font-accent: 'Poppins', var(--font-display);
+    --timeline-height: 0;
+    --container-width: 1100px;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-background);
+    color: var(--color-text-light);
+    font-family: var(--font-display); /* Inter para corpo */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease; 
+}
+
+/* Container para centralizar o conteúdo (Responsividade) */
+.container {
+    width: 90%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+}
+
+/* --- Estilos Gerais de Títulos e Botões --- */
+.section-title {
+    font-family: var(--font-display); /* Orbitron para títulos */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    /* Gradiente em Texto */
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; 
+}
+
+.section-subtitle {
+    font-family: var(--font-display); /* Poppins para subtítulos */
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 60px;
+}
+
+/* Estilo do Botão CTA (Microinteração) */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    font-family: var(--font-display); 
+}
+
+.primary-cta {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    color: var(--color-background); 
+}
+
+.primary-cta:hover {
+    transform: translateY(-3px); /* Efeito sutil de subida */
+    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+}
+
+/* --- 1. Header/Navegação --- */
+.header {
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background-color: rgba(17, 17, 17, 0.95); 
+    border-bottom: 1px solid var(--color-secondary);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-content .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-primary);
+    font-family: var(--font-display); /* Logo com Orbitron */
+}
+
+.nav-content ul {
+    display: flex;
+    list-style: none;
+}
+
+.nav-content ul li a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    margin-left: 30px;
+    transition: color 0.3s;
+    font-family: var(--font-display); /* Inter em links de nav */
+    font-weight: 600;
+}
+
+.nav-content ul li a:hover {
+    color: var(--color-primary);
+}
+
+.nav-cta {
+    color: var(--color-text-light); /* cor do texto do botão na nav */
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.06);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-family: var(--font-display);
+}
+
+/* --- 2. Hero Section (Com Background Imagem) --- */
+.hero-section {
+    padding: 150px 0;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+    overflow: hidden;
+
+    background: var(--color-background) url('../imagens/background.jpg') no-repeat center center/cover; 
+}
+
+/* Overlay Escuro para contraste */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative; 
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-family: var(--font-display); /* Orbitron no hero principal */
+    font-weight: 700;
+    /* Gradiente em Texto */
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; 
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--color-text-secondary);
+    font-family: var(--font-accent); /* Poppins no subtítulo do hero */
+}
+
+/* --- 3. Jornada de Incubação (Timeline) --- */
+.timeline-section {
+    padding: 80px 0;
+}
+
+.timeline {
+    list-style: none;
+    position: relative;
+    padding: 0;
+}
+
+/* A Linha Central (O Caminho Estático) */
+.timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2); 
+}
+
+/* Linha de Animação (CONTROLADA PELO JS) */
+.timeline:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    /* A altura é controlada pela variável JS */
+    height: var(--timeline-height, 0); 
+    background: linear-gradient(to bottom, var(--color-primary), var(--color-secondary));
+    transition: height 1s ease-out; 
+    z-index: 1; 
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 20px 0;
+    opacity: 0; 
+    transform: translateY(50px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+    z-index: 2;
+}
+
+.timeline-content {
+    background-color: #222; 
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-family: var(--font-family-sans); /* Inter no corpo da timeline */
+}
+
+/* Novo: Estilo para os ícones/emojis da Timeline */
+.timeline-content h3 .timeline-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+    /* Efeito neon sutil no ícone */
+    text-shadow: 0 0 5px var(--color-primary), 0 0 10px var(--color-secondary);
+}
+
+.timeline-content h3 {
+    font-family: var(--font-display); /* Orbitron nos títulos internos da timeline */
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    color: var(--color-text-light);
+}
+
+.timeline-point {
+    width: 14px;
+    height: 14px;
+    background-color: var(--color-background);
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+/* Posicionamento Esquerda/Direita */
+.timeline-item:nth-child(odd) {
+    margin-left: 0;
+    padding-right: 40px;
+    text-align: right;
+}
+.timeline-item:nth-child(even) {
+    margin-left: 50%;
+    padding-left: 40px;
+    text-align: left;
+}
+
+/* Posicionamento dos pontos */
+.timeline-item:nth-child(odd) .timeline-point {
+    right: -7px;
+}
+.timeline-item:nth-child(even) .timeline-point {
+    left: -7px;
+}
+
+/* Animação (Ativada por JS) */
+.timeline-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline-item.is-visible .timeline-point {
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px var(--color-primary);
+}
+
+/* --- 4. Seção de Estatísticas  --- */
+.stats-section {
+    padding: 80px 0;
+    background-color: var(--color-background-light);
+    text-align: center;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.stat-item {
+    flex: 1;
+    padding: 20px;
+    /* Borda Gradiente */
+    border: 1px solid transparent; 
+    border-image: linear-gradient(45deg, rgba(0, 255, 255, 0.5), rgba(90, 0, 255, 0.5)) 1;
+    border-radius: 4px;
+    background-color: #1a1a1a; 
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-item:hover {
+    background-color: #2a2a2a; 
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.15);
+}
+
+.stat-number {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-family: var(--font-display); /* Orbitron nos números */
+    /* Gradiente em Texto */
+    background: linear-gradient(45deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: #ccc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: var(--font-accent); /* Poppins nas labels */
+}
+
+/* --- 5. Seção Final --- */
+.cta-final-section {
+    padding: 100px 0;
+    text-align: center;
+    background-color: var(--color-background);
+}
+
+.cta-final-section h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-family: var(--font-display); 
+}
+
+/* --- 6. Rodapé --- */
+.footer {
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #888;
+    font-size: 0.9rem;
+    font-family: var(--font-family-sans);
+}
+/* ======================================= */
+/* --- MÍDIA QUERIES (Responsividade) --- */
+/* ======================================= */
+
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Hero */
+    .hero-section {
+        padding: 100px 0;
+    }
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Navegação */
+    .nav-content ul, .nav-cta {
+        display: none; 
+    }
+    .nav-content {
+        justify-content: center;
+    }
+
+    /* Estatísticas */
+    .stats-grid {
+        flex-direction: column;
+    }
+    .stat-number {
+        font-size: 2.5rem;
+    }
+
+    /* Timeline (Layout Vertical Simples para Mobile) */
+    .timeline:before, .timeline:after {
+        left: 20px; 
+        transform: none;
+    }
+    
+    .timeline-item, 
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 50px; 
+        padding-right: 10px;
+        text-align: left;
+    }
+    
+    .timeline-item:nth-child(odd) {
+        padding-left: 50px;
+        padding-right: 10px;
+        text-align: left;
+    }
+
+    .timeline-item .timeline-point {
+        left: 17px;
+        right: auto;
+    }
+
+    .timeline-content {
+        text-align: left;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+}
