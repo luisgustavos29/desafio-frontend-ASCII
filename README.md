@@ -2,7 +2,7 @@
 
 ## 🎯 Descrição do Projeto
 
-A **ASCEND** é uma Landing Page desenvolvida como solução para o Desafio Front-End da ASCII.
+A **ASCEND** é uma Landing Page desenvolvida como solução para o Desafio Front-End da ASCII Empresa Júnior de Computação da Universidade Federal De Uberlândia (UFU).
 O projeto foi construído com foco em **Criatividade, UI/UX Inovador e Organização do Código**, seguindo o princípio de ir além do básico.
 
 O design adota um **Dark Mode Futurista** com gradientes Neon (Ciano/Roxo) para transmitir a ideia de tecnologia e ascensão, centralizando a navegação em torno da conversão e da clareza da informação.
